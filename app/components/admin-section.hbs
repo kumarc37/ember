@@ -1,0 +1,106 @@
+{{#if this.creds.isAdmin}}
+<div class="container admin-section mt-3">
+    <div style="display: flex;justify-content:end">
+        <button type="button" class="btn btn-primary" {{on 'click' this.showForm}}>Create Flight</button>
+    </div>
+    <div id="formflight" class="create-form HIDE">
+        <form onsubmit={{action 'saveFlight'}}>
+            <div class="row">
+                <div class="col-6 form-group">
+                    <label for="airline" class="form-label">Airline : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="text" class="form-control input-required" id="airline" name="airline">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="flightno" class="form-label">Flight Number : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="text" class="form-control input-required" id="flightno" name="flightno">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="from" class="form-label">From : <span class="mandatory">*</span></label>
+                    <select {{on 'focus' this.onFocus}} type="text" class="form-control input-required" id="from" name="from">
+                        <option value="">-- Select --</option>
+                        {{#each @cities as |city|}}
+                            <option value={{city}}>{{city}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label for="destination" class="form-label">Destination : <span class="mandatory">*</span></label>
+                    <select {{on 'focus' this.onFocus}} type="text" class="form-control input-required" id="destination" name="destination">
+                        <option value="">-- Select --</option>
+                        {{#each @cities as |city|}}
+                            <option value={{city}}>{{city}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="col-6 form-group">
+                    <label for="startdate" class="form-label">Start Date : <span class="mandatory">*</span></label>
+                    <input {{on 'change' this.changeHandler}} {{on 'focus' this.onFocus}} {{on 'mouseover' this.onMouseOver}} type="date" class="form-control input-required" id="startdate" name="startdate">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="enddate" class="form-label">End Date : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="date" class="form-control input-required" id="enddate" name="enddate" disabled>
+                </div>
+                <div class="col-6 form-group">
+                    <label for="starttime" class="form-label">Departure : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="time" class="form-control input-required" id="starttime" name="starttime">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="droppingtime" class="form-label">Arrival : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="time" class="form-control input-required" id="droppingtime" name="droppingtime">
+                </div>
+                <div class="col-6 form-group">
+                    <label for="price" class="form-label">Price : <span class="mandatory">*</span></label>
+                    <input {{on 'focus' this.onFocus}} type="number" class="form-control input-required" id="price" name="price">
+                </div>
+                <div class="col-6 form-group" style="display: flex;align-items: center;column-gap: 10px;">
+                    <button type="button" class="btn btn-warning" {{on 'click' this.hideForm}}>Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="flights">
+        <table class="table flight-table table-striped">
+        <tr>
+            <th>
+                Airlines
+            </th>
+            <th>
+                Departure
+            </th>
+            <th>
+                Arrival
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
+        {{#each @flights as |flight|}}
+            <tr class="flight-row">
+                <td>
+                        <img src="/Assests/Images/plane.png">
+                        <span class="airline-name">{{flight.airline}}</span> <br>
+                        <span class="flight-number">{{flight.flightNumber}}</span>
+                </td>
+                <td>
+                    {{flight.startTime}}
+                </td>
+                <td>
+                    {{flight.droppingTime}}
+                </td>
+                <td>
+                    {{flight.price}}
+                </td>
+                <td>
+                    <button class="btn btn-danger" type="button" onclick={{action 'deleteFlight' flight.id }}>Delete</button>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    </div>
+</div>
+{{/if}}
+
+{{yield}}

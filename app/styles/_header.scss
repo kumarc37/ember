@@ -1,0 +1,57 @@
+.navbar{
+    background-color: #060606;
+
+    .navbar-brand{
+        font-size: 18pt;
+        font-style: italic;
+        font-weight: 500;
+        color: white;
+        padding: 10px;
+    }
+
+    text{
+        padding: 10px;
+    }
+    img{
+        width: 10%;
+    }
+    a:hover{
+        color: white !important;
+    }
+    .special{
+        color: #fdd307;
+        font-size: 20pt;
+    }
+    .btn-orange{
+        color: white;
+        background-color: #f56a07;
+        font-weight: 500;
+        padding: 7px;
+        border-radius: 10px;
+    }
+    .btn-orange:hover{
+        color: white;
+        background-color: #726f6d;
+        font-weight: 500;
+        padding: 7px;
+        border-radius: 10px;
+    }
+}
+.form-control{
+    margin-bottom: 10px;
+}
+.modal-header{
+    font-size: 16pt;
+    font-weight: 500;
+    color: blue;
+}
+.HIDE{
+    display: none;
+}
+.admin-section{
+    min-height: 50px;
+
+    label{
+        font-weight: 500;
+    }
+}

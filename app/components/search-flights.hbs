@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="title">
+        Search Flights
+    </div>
+    <div>
+        <span class="caption">fly anywhere, fly everywhere</span>
+    </div>
+    <form class="col-6 form-cls" {{on 'submit' this.searchFights}}>
+        <div class="col-8 form-input">
+            <label for="from">From : <span class="mandatory">*</span></label>
+            <select {{on 'focus' this.onFocus}} type="text" class="form-control required" id="from"> 
+                <option value="">-- Select --</option>
+                {{#each @cities as |city|}}
+                    <option value={{city}}>{{city}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-8 form-input">
+            <label for="to">To : <span class="mandatory">*</span></label>
+            <select {{on 'focus' this.onFocus}} type="text" class="form-control required" id="to">
+                <option value="">-- Select --</option>
+                {{#each @cities as |city|}}
+                    <option value={{city}}>{{city}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="col-8 form-input">
+            <label for="to">Date : <span class="mandatory">*</span></label>
+            <input {{on 'focus' this.onFocus}} {{on 'mouseover' this.onMouseOver}} type="date" class="form-control required" id="date">
+        </div>
+        <div class="btn-cls">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
+    <div>
+        Note : <span class="mandatory">*</span> mandatory fields.
+    </div>
+</div>
+{{yield}}

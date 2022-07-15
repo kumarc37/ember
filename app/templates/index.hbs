@@ -1,0 +1,12 @@
+{{page-title "Index"}}
+<div id="loading" class="HIDE"></div>
+<Header @adminBtn={{this.adminBtn}}/>
+<div class="body-container">
+    {{#if this.creds.isAdmin}}
+        <AdminSection @flights={{this.creds.flights}} @cities={{this.model}}/>
+    {{else}}
+        <SearchFlights @cities={{this.model}}/>
+    {{/if}}
+</div>
+<Footer />
+{{outlet}}

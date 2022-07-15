@@ -1,0 +1,26 @@
+.flight-details-div{
+    width: 50%;
+    margin: 0 auto;
+    margin-block: 20px;
+
+    span{
+        font-weight: 500;
+        font-size: 18pt;
+        color: indigo;
+    }
+
+    div{
+        font-size: 15pt;
+        font-style: italic;
+        font-weight: 500;
+    }
+    .header{
+        font-size: 20pt;
+    }
+}
+.no-flights{
+    font-size: 20pt;
+    font-weight: 500;
+    color: red;
+    text-align: center;
+}

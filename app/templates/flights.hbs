@@ -1,0 +1,62 @@
+{{page-title "Flights"}}
+<div id="loading" class="HIDE"></div>
+<Header @adminBtn={{this.adminBtn}}/>
+
+<div class="container">
+    <div class="flight-details-div">
+        <div class="header">Flight Details</div>
+        <div>From : <span>{{this.model.params.from}}</span></div>
+        <div>Destination : <span>{{this.model.params.destination}}</span></div>
+        <div>Date of Journey : <span>{{this.model.params.date}}</span></div>
+    </div>
+    <table class="table flight-table">
+        <tr>
+            <th>
+                Airlines
+            </th>
+            <th>
+                Departure
+            </th>
+            <th>
+                Duration
+            </th>
+            <th>
+                Arrival
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+            </th>
+        </tr>
+        {{#each this.model.flights as |flight|}}
+            <tr class="flight-row">
+                <td>
+                        <img src="/Assests/Images/plane.png">
+                        <span class="airline-name">{{flight.airline}}</span> <br>
+                        <span class="flight-number">{{flight.flightNumber}}</span>
+                </td>
+                <td>
+                    {{flight.startTime}}
+                </td>
+                <td>
+                    {{flight.duration}}
+                </td>
+                <td>
+                    {{flight.droppingTime}}
+                </td>
+                <td>
+                    {{flight.price}}
+                </td>
+                <td>
+                    <button class="btn btn-primary" type="button" onclick={{action 'bookATicket' flight.id}}>Book</button>
+                </td>
+            </tr>
+        {{/each}}
+    </table>
+    {{#if this.model.noFlights}}
+        <div class="no-flights">No Flights Found</div>
+    {{/if}}
+</div>
+<Footer />
+{{outlet}}

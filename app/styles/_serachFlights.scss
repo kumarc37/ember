@@ -1,0 +1,75 @@
+.title{
+    font-size: 40pt;
+
+    .caption{
+        font-size: 15pt;
+    }
+}
+.form-cls{
+    background-color: cadetblue;
+    margin: 0 auto;
+    padding-block: 20px;
+    border-radius: 10px;
+
+    .form-input{
+        margin: 0 auto;
+    }
+    .btn-cls{
+        text-align: center;
+    }
+    label{
+        color: white;
+        font-weight: 500;
+    }
+}
+
+.flight-table{
+    .airline-name{
+        font-size: 18pt;
+        font-weight: 500;
+        color: blueviolet;
+        padding: 0;
+    }
+    .flight-number{
+        padding: 0;
+        font-weight: 500;
+        color: orange;
+        font-style: italic;
+    }
+    th,td{
+        text-align: center;
+    }
+    td{
+        width: 16.66%;
+    }
+    .flight-row{
+        background-color: antiquewhite;
+
+        img{
+            width: 75px;
+            padding: 0;
+        }
+    }
+    .btn-danger{
+        background-color: #dc3545;
+    }
+    .btn-primary{
+        background-color: #0d6efd;
+    }
+}
+.flight-details{
+    width: 50%;
+    margin: 0 auto;
+
+    span{
+        font-weight: 500;
+        font-size: 16pt;
+        color: indigo;
+    }
+}
+.passenger-details{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+

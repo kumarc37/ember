@@ -1,0 +1,25 @@
+@import './header';
+@import './footer';
+@import './serachFlights';
+@import './bookticket';
+@import './flights';
+
+.body-container{
+    margin-bottom: 60px;
+}
+
+#loading {
+    background: url('/Assests/Images/loading.gif') no-repeat center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999999;
+    background-color: rgba(0,0,0,0.7);
+    background-size: 100px;
+}
+.mandatory{
+    font-size: 16pt;
+    color: red;
+}

@@ -1,0 +1,73 @@
+<div id="loading" class="HIDE"></div>
+<Header @adminBtn={{this.adminBtn}} />
+<div id="body-container" class="body-container mt-3">
+    <div class="flight-details">
+        <h3>Flight Details:</h3>
+        <div class="row">
+            <div class="col-6">
+                <div>Airline : <span>{{this.model.airline}}</span></div>
+                <div>Flight Number : <span>{{this.model.flightNumber}}</span></div>
+            </div>
+            <div class="col-6">
+                <div>From : <span>{{this.model.from}}</span></div>
+                <div>Destination : <span>{{this.model.destination}}</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="passenger-details">
+        <h3>Add Ticket Details</h3>
+        <form autocomplete="off" class="row">
+            <div class="col-6">
+                <label for="email">Email : <span class="mandatory">*</span></label>
+                <input {{on 'focus' this.onFocus}} type="email" name="email" id="email" class="form-control passengers-required" autocomplete="false">
+            </div>
+            <div class="col-6">
+                <label for="passeengers">No of Passengers: <span class="mandatory">*</span></label>
+                <input {{on 'focus' this.onFocus}} oninput={{action 'changeHandler'}} type="number" name="passeengers" id="passeengers" class="form-control passengers-required">
+            </div>
+            <div class="col-6">
+                <label for="mobileno">Mobile No. : <span class="mandatory">*</span></label>
+                <input {{on 'focus' this.onFocus}} type="text" name="mobileno" id="mobileno" class="form-control passengers-required">
+            </div>
+        </form>
+        {{#each this.passengersArr as |pass|}}
+            <h4>Add passaenger {{pass}} details:</h4>
+            <label>Name : <span class="mandatory">*</span></label>
+            <input {{on 'focus' this.onFocus}} type="text" id="name{{pass}}" class="form-control passengers-required"/>
+            <label>Age : <span class="mandatory">*</span></label>
+            <input min="12" max="120" type="number" {{on 'focus' this.onFocus}} id="age{{pass}}" class="form-control passengers-required"/>
+            <label>Gender : <span class="mandatory">*</span></label>
+            <select {{on 'focus' this.onFocus}} id="gender{{pass}}" class="form-control passengers-required">
+                <option value="">-- Select --</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+            </select>
+        {{/each}}
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-primary" onclick={{action 'saveDetails'}}>Save</button>
+        </div>
+        <div>
+            Note : <span class="mandatory">*</span> mandatory fields.
+        </div>
+    </div>
+</div>
+<Footer />
+<div class="modal" id="pnrModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="pnrDiv">
+            Your Booking confirmed Successfully...<br>
+            Here is your PNR Number :<br><span id="pnrNumber"></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onclick={{action 'hideModal'}}>Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{{outlet}}
